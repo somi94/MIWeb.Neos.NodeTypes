@@ -1,0 +1,53 @@
+prototype(MIWeb.Neos.NodeTypes:Page) < prototype(Neos.Neos:Page) {
+    head {
+        meta = Neos.Fusion:Template {
+            templatePath = 'resource://MIWeb.Neos.NodeTypes/Private/Templates/NodeTypes/Page.html'
+            sectionName = 'meta'
+        }
+
+        stylesheets.site = Neos.Fusion:Template {
+            templatePath = 'resource://MIWeb.Neos.NodeTypes/Private/Templates/NodeTypes/Page.html'
+            sectionName = 'stylesheets'
+        }
+
+        javascripts.site = Neos.Fusion:Template {
+            templatePath = 'resource://MIWeb.Neos.NodeTypes/Private/Templates/NodeTypes/Page.html'
+            sectionName = 'headScripts'
+        }
+    }
+
+    body {
+        templatePath = 'resource://MIWeb.Neos.NodeTypes/Private/Templates/NodeTypes/Page.html'
+        sectionName = 'body'
+
+        parts {
+            menu = Neos.Neos:Menu {
+				maximumLevels = 1
+			}
+            footer = Neos.Neos:Menu
+        }
+
+        javascripts.site = Neos.Fusion:Template {
+            templatePath = 'resource://MIWeb.Neos.NodeTypes/Private/Templates/NodeTypes/Page.html'
+            sectionName = 'bodyScripts'
+        }
+
+        content {
+            // The default content section
+            main = Neos.Neos:PrimaryContent {
+                nodePath = 'main'
+            }
+            teaser = Neos.Neos:ContentCollection {
+                nodePath = 'teaser'
+            }
+			teaserImageAsset = ${q(node).property('image')}
+			teaserImage = Neos.Neos:ImageTag {
+				asset = ${q(node).property('image')}
+				attributes.alt = 'Teaser Image'
+				attributes.title = ${q(node).property('title')}
+				attributes.class = attributes.class + ' title-image'
+				//maximumWidth = 400
+			}
+        }
+    }
+}

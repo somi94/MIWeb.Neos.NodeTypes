@@ -1,0 +1,73 @@
+'MIWeb.Neos.NodeTypes:Teaser':
+  superTypes:
+    'Neos.Neos:Content': true
+  ui:
+    label: 'Teaser'
+    icon: 'icon-file-text'
+    position: 201
+    inspector:
+      groups:
+        target:
+          label: 'Target'
+  properties:
+    targetText:
+      type: string
+      defaultValue: 'Read More ...'
+      ui:
+        inlineEditable: true
+        aloha:
+          autoparagraph: false
+    target:
+      type: reference
+      ui:
+        label: 'Target'
+        inspector:
+          group: target
+          editorOptions:
+            nodeTypes: ['MIWeb.Neos.NodeTypes:Teasered']
+'MIWeb.Neos.NodeTypes:Button':
+  superTypes:
+    'Neos.Neos:Content': true
+    'Neos.NodeTypes:TextMixin': true
+  ui:
+    label: 'Button'
+    icon: 'icon-file-text'
+    position: 201
+    inspector:
+      groups:
+        link:
+          label: 'Link'
+  properties:
+    text:
+      type: string
+      defaultValue: 'Click Me!'
+      ui:
+        inlineEditable: true
+        aloha:
+          autoparagraph: false
+    target:
+      type: reference
+      ui:
+        label: 'Target'
+        inspector:
+          group: link
+          editorOptions:
+            nodeTypes: ['Neos.NodeTypes:Page']
+'MIWeb.Neos.NodeTypes:Quote':
+  superTypes:
+    'Neos.NodeTypes:Text': true
+  ui:
+    label: 'Quote'
+    icon: 'icon-file-text'
+    position: 200
+#'Neos.NodeTypes:Text':
+#  properties:
+#    text:
+#      ui:
+#        inline:
+#          editorOptions:
+#            formatting:
+#              left: true
+#              right: true
+#              center: true
+#              justify: true

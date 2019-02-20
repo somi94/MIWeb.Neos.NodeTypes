@@ -1,0 +1,4 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+<a{attributes -> f:format.raw()}>
+    {neos:contentElement.editable(property: 'text')}
+</a>

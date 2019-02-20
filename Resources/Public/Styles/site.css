@@ -1,0 +1,78 @@
+body {
+    color: #444;
+}
+
+h1 {
+	margin-bottom: 0.5em;
+}
+
+a {
+    color: #222;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a.active {
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.navi, .footer {
+	text-align: center;
+}
+
+/**
+ * Navigation
+ **/
+
+.navi {
+	display: block;
+}
+
+.navi ul {
+	display: inline-block;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.navi ul li {
+	display: inline-block;
+	padding-left: 10px;
+}
+
+.navigation .navi ul li a {
+	display: inline-block;
+	font-size: 1.5em;
+	/*font-weight: bold;*/
+	padding: 0.5em 1em;
+}
+
+.navigation .navi ul li a:hover {
+	text-decoration: none;
+}
+
+.footer .navi ul li a {
+	padding-left: 10px;
+}
+
+.footer .navi ul li::before {
+	content: "\2022";
+}
+
+.miweb-neos-nodetypes-quote {
+	font-size: 1.5em;
+	font-style: italic;
+	margin-bottom: 1em;
+	padding: 0 10%;
+	text-align: center;
+}

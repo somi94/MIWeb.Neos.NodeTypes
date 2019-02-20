@@ -1,0 +1,13 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+<div{attributes -> f:format.raw()}>
+	<f:if condition="{useTitle}">
+		<h2 class="teaser-title">{title -> f:format.raw()}</h2>
+	</f:if>
+	<f:if condition="{useTeaserImage}">
+		<figure class="teaser-image">{teaserImage -> f:format.raw()}</figure>
+	</f:if>
+	{contents -> f:format.raw()}
+	<a{link.attributes -> f:format.raw()}>
+	    {neos:contentElement.editable(property: 'targetText')}
+	</a>
+</div>

@@ -1,0 +1,10 @@
+Neos:
+  Neos:
+#    nodeTypes:
+#      groups:
+#        projects:
+#          position: 'after plugins'
+#          label: Projects
+    fusion:
+      autoInclude:
+        MIWeb.Neos.NodeTypes: true

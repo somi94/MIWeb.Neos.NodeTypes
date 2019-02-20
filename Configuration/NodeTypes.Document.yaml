@@ -1,0 +1,25 @@
+---
+'MIWeb.Neos.NodeTypes:Teasered':
+  abstract: true
+  childNodes:
+    teaser:
+      type: 'Neos.Neos:ContentCollection'
+'MIWeb.Neos.NodeTypes:Page':
+  superTypes:
+    'Neos.Neos:Document': true
+    'MIWeb.Neos.NodeTypes:Teasered': true
+    'Neos.NodeTypes:ImageMixin': true
+  ui:
+    icon: 'icon-file'
+    label: 'Page'
+    inspector:
+      groups:
+        image:
+          position: 205
+  childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'
+'MIWeb.Neos.Blog:Blog':
+  superTypes:
+    'MIWeb.Neos.NodeTypes:Teasered': true
+

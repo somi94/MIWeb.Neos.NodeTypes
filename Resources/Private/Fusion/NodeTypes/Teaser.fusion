@@ -1,0 +1,43 @@
+prototype(MIWeb.Neos.NodeTypes:Teaser) {
+    attributes.class = ${attributes.class + ' teaser'}
+
+	//text = ${q(node).property('text')}
+
+	link {
+		target = ${q(node).property('target')}
+
+		attributes = Neos.Fusion:Attributes {
+			class = 'btn btn-primary btn-lg btn-block'
+
+			href = Neos.Neos:NodeUri {
+				node = ${q(node).property('target')}
+			}
+
+			onclick = Neos.Fusion:Case {
+				backend {
+				    condition = ${node.context.inBackend}
+				    renderer = 'return false;'
+				}
+			}
+		}
+	}
+
+	uri = Neos.Neos:NodeUri {
+        node = ${q(node).property('target')}
+    }
+
+	contents = Neos.Neos:ContentCollection {
+        @context.node = ${q(q(node).property('target')).children('teaser').get(0)}
+	}
+
+	useTitle = true
+	title = ${q(q(node).property('target')).property('title')}
+
+	useTeaserImage = ${q(q(node).property('target')).property('image')}
+	teaserImage = Neos.Neos:ImageTag {
+		asset = ${q(q(node).property('target')).property('image')}
+		attributes.alt = 'Teaser Image'
+		attributes.title = ${q(node).property('title')}
+		//maximumWidth = 400
+	}
+}

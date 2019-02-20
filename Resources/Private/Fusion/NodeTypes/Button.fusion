@@ -1,0 +1,31 @@
+prototype(MIWeb.Neos.NodeTypes:Button) {
+    attributes.class = ${attributes.class + ' btn btn-primary btn-lg btn-block'}
+
+    attributes.href = Neos.Neos:NodeUri {
+        node = ${q(node).property('target')}
+    }
+    attributes.onclick = Neos.Fusion:Case {
+        backend {
+            condition = ${node.context.inBackend}
+            renderer = 'return false;'
+        }
+    }
+
+//      attributes.href = Neos.Fusion:Case {
+//        backend {
+//            condition = ${node.context.inBackend}
+//
+//            renderer = ''
+//        }
+//
+//        frontend {
+//            condition = ${true}
+//
+//            renderer = Neos.Neos:NodeUri {
+//                node = ${q(node).property('target')}
+//            }
+//        }
+//    }
+
+    #target = ${q(node).property('target')}
+}

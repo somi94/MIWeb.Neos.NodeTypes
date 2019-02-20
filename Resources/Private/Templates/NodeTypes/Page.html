@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{namespace neos=Neos\Neos\ViewHelpers}
+{namespace fusion=Neos\Fusion\ViewHelpers}
+<html>
+<head>
+    <f:section name="meta">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    </f:section>
+
+    <f:section name="stylesheets">
+        <link href="https://fonts.googleapis.com/css?family=Lato|Oswald|Open+Sans" rel="stylesheet">
+
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+        <style type="text/css">
+            .slick-slider .slick-arrow::before {
+                color: #000;
+            }
+        </style>
+
+        <link rel="stylesheet" type="text/css" href="resource://MIWeb.Neos.NodeTypes/Public/Styles/site.css"/>
+        <link rel="stylesheet" type="text/css" href="resource://MIWeb.Neos.NodeTypes/Public/Styles/neos.css"/>
+    </f:section>
+
+    <f:section name="headScripts">
+    </f:section>
+</head>
+<body>
+<f:section name="body">
+	<div class="container main">
+		<div class="row title">
+			<div class="col-md-12">
+				Demo Page
+			</div>
+		</div>
+		<div class="row navigation">
+			<div class="col-md-12 navi">
+				{parts.menu -> f:format.raw()}
+			</div>
+		</div>
+        <div class="row teaser">
+            <div class="col-md-12">
+            	{content.teaser -> f:format.raw()}
+            </div>
+        </div>
+        <div class="row content">
+            <div class="col-md-12">
+            	{content.main -> f:format.raw()}
+            </div>
+        </div>
+        <div class="row footer">
+            <div class="col-md-12 navi">
+				&copy; Your Company {parts.footer -> f:format.raw()}
+			</div>
+        </div>
+	</div>
+</f:section>
+<f:section name="bodyScripts">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</f:section>
+</body>
+</html>
