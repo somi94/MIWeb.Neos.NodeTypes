@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file original="" product-name="MIWeb.Neos.NodeTypes" source-language="en" datatype="plaintext" target-language="de">
+        <body>
+            <trans-unit id="ui.label" xml:space="preserve" approved="yes">
+				<source>Page</source>
+                <target xml:lang="de" state="translated">Seite</target>
+            </trans-unit>
+            <trans-unit id="properties.teaserText.aloha.placeholder" xml:space="preserve" approved="yes">
+				<source><![CDATA[<p>Enter teaser text here</p>]]></source>
+                <target xml:lang="de" state="translated"><![CDATA[<p>Teaser Text hier eingeben</p>]]></target>
+            </trans-unit>
+            <trans-unit id="properties.showInMetaMenu" xml:space="preserve" approved="yes">
+				<source>Show in Meta Menu</source>
+                <target xml:lang="de" state="translated">In Meta-Menü anzeigen</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

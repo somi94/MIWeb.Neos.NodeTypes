@@ -1,0 +1,1 @@
+prototype(MIWeb.Neos.NodeTypes:Homepage) < prototype(MIWeb.Neos.NodeTypes:Page)

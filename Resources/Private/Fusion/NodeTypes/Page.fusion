@@ -21,10 +21,17 @@ prototype(MIWeb.Neos.NodeTypes:Page) < prototype(Neos.Neos:Page) {
         sectionName = 'body'
 
         parts {
+//            menu = Neos.Neos:Menu {
+//				maximumLevels = 1
+//			}
             menu = Neos.Neos:Menu {
-				maximumLevels = 1
-			}
-            footer = Neos.Neos:Menu
+                itemCollection = ${q(site).add(q(site).children('[instanceof Neos.Neos:Document]')).get()}
+                maximumLevels = 1
+            }
+            metaMenu = Neos.Neos:Menu {
+                itemCollection = ${q(site).children('[showInMetaMenu]').get()}
+                renderHiddenInIndex = true
+            }
         }
 
         javascripts.site = Neos.Fusion:Template {
@@ -37,9 +44,16 @@ prototype(MIWeb.Neos.NodeTypes:Page) < prototype(Neos.Neos:Page) {
             main = Neos.Neos:PrimaryContent {
                 nodePath = 'main'
             }
-            teaser = Neos.Neos:ContentCollection {
-                nodePath = 'teaser'
-            }
+
+//            teaser = Neos.Neos:ContentCollection {
+//                nodePath = 'teaser'
+//            }
+//            teaserGiven = ${q(node).children('teaser').children().count()}
+
+            textRenderer = Neos.NodeTypes:Text
+            teaserText = ${q(node).children('teaserText').get(0)}
+            teaserTextContents = ${q(q(node).children('teaserText').get(0)).property('text')}
+
 			teaserImageAsset = ${q(node).property('image')}
 			teaserImage = Neos.Neos:ImageTag {
 				asset = ${q(node).property('image')}
@@ -48,6 +62,11 @@ prototype(MIWeb.Neos.NodeTypes:Page) < prototype(Neos.Neos:Page) {
 				attributes.class = attributes.class + ' title-image'
 				//maximumWidth = 400
 			}
+        }
+
+        footer = Neos.Neos:ContentCollection {
+            nodePath = ${q(site).children('footer').property('_path')}
+            //collection = ${q(site).children('footer').children()}
         }
     }
 }
