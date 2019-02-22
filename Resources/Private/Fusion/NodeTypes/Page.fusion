@@ -29,7 +29,7 @@ prototype(MIWeb.Neos.NodeTypes:Page) < prototype(Neos.Neos:Page) {
                 maximumLevels = 1
             }
             metaMenu = Neos.Neos:Menu {
-                itemCollection = ${q(site).children('[showInMetaMenu]').get()}
+                itemCollection = ${q(site).children('[showInMetaMenu=true]').get()}
                 renderHiddenInIndex = true
             }
         }
@@ -38,6 +38,8 @@ prototype(MIWeb.Neos.NodeTypes:Page) < prototype(Neos.Neos:Page) {
             templatePath = 'resource://MIWeb.Neos.NodeTypes/Private/Templates/NodeTypes/Page.html'
             sectionName = 'bodyScripts'
         }
+
+        isHomepage = ${q(node).is('[instanceof MIWeb.Neos.NodeTypes:Homepage]')}
 
         content {
             // The default content section

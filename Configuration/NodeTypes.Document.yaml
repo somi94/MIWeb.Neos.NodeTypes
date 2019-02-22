@@ -26,6 +26,7 @@
       type: boolean
       ui:
         label: i18n
+        reloadPageIfChanged: true
         inspector:
           group: 'visibility'
           position: 50
