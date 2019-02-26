@@ -76,6 +76,11 @@ prototype(MIWeb.Neos.NodeTypes:Teaser) {
 		}
 
 		@cache {
+			entryIdentifier {
+				node = ${node}
+				editPreviewMode = ${node.context.currentRenderingMode.name}
+			}
+
 			entryTags {
 				# Whenever the node changes the matched condition could change
 				1 = ${Neos.Caching.nodeTag(q(q(node).property('target')))}
@@ -109,6 +114,11 @@ prototype(MIWeb.Neos.NodeTypes:Teaser) {
 		}
 
 		@cache {
+			entryIdentifier {
+				node = ${node}
+				editPreviewMode = ${node.context.currentRenderingMode.name}
+			}
+
 			entryTags {
 				# Whenever the node changes the matched condition could change
 				1 = ${Neos.Caching.nodeTag(q(q(node).property('target')))}
@@ -131,7 +141,7 @@ prototype(MIWeb.Neos.NodeTypes:Teaser) {
 		}
 	}
 
-	textEnabled = ${q(q(q(node).property('target')).children('teaserText').get(0)).property('text')}
+	textEnabled = ${q(node).property('text') || q(q(q(node).property('target')).children('teaserText').get(0)).property('text')}
 	textRenderer = Neos.NodeTypes:Text
 	textNode = ${q(q(node).property('target')).children('teaserText').get(0)}
 	textContents = Neos.Fusion:Case {
@@ -151,6 +161,11 @@ prototype(MIWeb.Neos.NodeTypes:Teaser) {
 		}
 
 		@cache {
+			entryIdentifier {
+				node = ${node}
+				editPreviewMode = ${node.context.currentRenderingMode.name}
+			}
+
 			entryTags {
 				# Whenever the node changes the matched condition could change
 				1 = ${Neos.Caching.nodeTag(q(q(node).property('target')))}

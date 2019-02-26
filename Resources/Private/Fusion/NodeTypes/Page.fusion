@@ -25,7 +25,7 @@ prototype(MIWeb.Neos.NodeTypes:Page) < prototype(Neos.Neos:Page) {
 //				maximumLevels = 1
 //			}
             menu = Neos.Neos:Menu {
-                itemCollection = ${q(site).add(q(site).children('[instanceof Neos.Neos:Document]')).get()}
+                itemCollection = ${q(site).children('[instanceof Neos.Neos:Document]').get()}
                 maximumLevels = 1
             }
             metaMenu = Neos.Neos:Menu {
