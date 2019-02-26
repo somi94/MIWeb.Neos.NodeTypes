@@ -1,6 +1,7 @@
 'MIWeb.Neos.NodeTypes:Teaser':
   superTypes:
     'Neos.Neos:Content': true
+    'Neos.NodeTypes:ImageMixin': true
   ui:
     label: 'Teaser'
     icon: 'icon-file-text'
@@ -21,10 +22,28 @@
       type: reference
       ui:
         label: 'Target'
+        reloadPageIfChanged: true
         inspector:
           group: target
           editorOptions:
             nodeTypes: ['MIWeb.Neos.NodeTypes:Teasered']
+    title:
+      type: string
+      ui:
+        label: 'Title (Override)'
+        reloadPageIfChanged: true
+        inspector:
+          group: target
+    text:
+      type: string
+      ui:
+        label: 'Description (Override)'
+        reloadPageIfChanged: true
+        inspector:
+          group: target
+          editor: 'Neos.Neos/Inspector/Editors/TextAreaEditor'
+    alternativeText:
+      ui: ~
 'MIWeb.Neos.NodeTypes:Button':
   superTypes:
     'Neos.Neos:Content': true

@@ -1,13 +1,33 @@
 {namespace neos=Neos\Neos\ViewHelpers}
-<div{attributes -> f:format.raw()}>
-	<f:if condition="{useTitle}">
-		<h2 class="teaser-title">{title -> f:format.raw()}</h2>
-	</f:if>
-	<f:if condition="{useTeaserImage}">
-		<figure class="teaser-image">{teaserImage -> f:format.raw()}</figure>
-	</f:if>
-	{contents -> f:format.raw()}
-	<a{link.attributes -> f:format.raw()}>
-	    {neos:contentElement.editable(property: 'targetText')}
-	</a>
+{namespace fusion=Neos\Fusion\ViewHelpers}
+<div{attributes -> f:format.raw()} style="background-image: url({imageUri});">
+    <a{link.attributes -> f:format.raw()}>
+        {contents -> f:format.raw()}
+        <f:comment>
+            <div class="image">
+                {imageContents -> f:format.raw()}
+                <f:if condition="{titleEnabled}">
+                    <div class="title">
+                        {titleContents -> f:format.raw()}
+                    </div>
+                </f:if>
+            </div>
+        </f:comment>
+        <div class="title">
+            {titleContents -> f:format.raw()}
+        </div>
+        <div class="contents">
+            <div class="wrapper">
+                <f:if condition="{titleEnabled}">
+                    <h3 class="title">{titleContents -> f:format.raw()}</h3>
+                </f:if>
+                <f:if condition="{textEnabled}">
+                    <f:comment><fusion:render path="textRenderer" context="{node: textNode}" /></f:comment>
+                    <div class="text">
+                        {textContents -> f:format.raw()}
+                    </div>
+                </f:if>
+            </div>
+        </div>
+    </a>
 </div>

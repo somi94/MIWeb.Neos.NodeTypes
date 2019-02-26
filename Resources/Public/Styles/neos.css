@@ -73,7 +73,8 @@
     width: 75%;
 }
 
-.neos-nodetypes-threecolumn.columns-33-33-33 .column {
+.neos-nodetypes-threecolumn.columns-33-33-33 .column,
+.neos-nodetypes-threecolumn.columns-4-4-4 .column {
     width: 33%;
 }
 

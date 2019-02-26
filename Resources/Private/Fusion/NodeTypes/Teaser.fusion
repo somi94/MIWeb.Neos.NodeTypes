@@ -1,5 +1,5 @@
 prototype(MIWeb.Neos.NodeTypes:Teaser) {
-    attributes.class = ${attributes.class + ' teaser'}
+    //attributes.class = ${attributes.class + ' teaser'}
 
 	//text = ${q(node).property('text')}
 
@@ -7,7 +7,7 @@ prototype(MIWeb.Neos.NodeTypes:Teaser) {
 		target = ${q(node).property('target')}
 
 		attributes = Neos.Fusion:Attributes {
-			class = 'btn btn-primary btn-lg btn-block'
+//			class = 'btn btn-primary btn-lg btn-block'
 
 			href = Neos.Neos:NodeUri {
 				node = ${q(node).property('target')}
@@ -26,18 +26,137 @@ prototype(MIWeb.Neos.NodeTypes:Teaser) {
         node = ${q(node).property('target')}
     }
 
-	contents = Neos.Neos:ContentCollection {
-        @context.node = ${q(q(node).property('target')).children('teaser').get(0)}
+//	contents = Neos.Fusion:Case {
+//		target {
+//			condition = ${q(q(node).property('target')).get()}
+//
+//			type = 'Neos.Neos:ContentCollection'
+//			@context.node = ${q(q(node).property('target')).children('teaser').get(0)}
+//		}
+//
+//		fallback {
+//			condition = ${true}
+//			renderer = 'Please specify a target node.'
+//		}
+//	}
+//	contents = Neos.Neos:ContentCollection {
+//        @context.node = ${q(q(node).property('target')).children('teaser').get(0)}
+//	}
+
+	contents = Neos.Fusion:Case {
+		target {
+			condition = ${q(q(node).property('target')).get()}
+			renderer = ''
+
+//			type = 'Neos.Neos:ContentCollection'
+//			@context.node = ${q(q(node).property('target')).children('teaser').get(0)}
+		}
+
+		fallback {
+			condition = ${true}
+			renderer = 'Please specify a target node.'
+		}
 	}
 
-	useTitle = true
-	title = ${q(q(node).property('target')).property('title')}
+	titleEnabled = true
+	titleContents = Neos.Fusion:Case {
+		override {
+			condition = ${q(node).property('title')}
+			renderer = ${q(node).property('title')}
+		}
 
-	useTeaserImage = ${q(q(node).property('target')).property('image')}
-	teaserImage = Neos.Neos:ImageTag {
-		asset = ${q(q(node).property('target')).property('image')}
-		attributes.alt = 'Teaser Image'
-		attributes.title = ${q(node).property('title')}
-		//maximumWidth = 400
+		teaser {
+			condition = ${q(q(node).property('target')).property('title')}
+			renderer = ${q(q(node).property('target')).property('title')}
+		}
+
+		fallback {
+			condition = ${true}
+			renderer = 'No title given...'
+		}
+
+		@cache {
+			entryTags {
+				# Whenever the node changes the matched condition could change
+				1 = ${Neos.Caching.nodeTag(q(q(node).property('target')))}
+				# Whenever one of the parent nodes changes the layout could change
+				2 = ${Neos.Caching.descendantOfTag(q(q(node).property('target')))}
+			}
+		}
+	}
+
+	@context.imageUri = Neos.Fusion:Case {
+		override {
+			condition = ${q(node).property('image')}
+			renderer = Neos.Neos:ImageUri {
+				asset = ${q(node).property('image')}
+			}
+		}
+
+		teaser {
+			condition = ${q(q(node).property('target')).property('image')}
+			renderer = Neos.Neos:ImageUri {
+				asset = ${q(q(node).property('target')).property('image')}
+			}
+		}
+
+		fallback {
+			condition = ${true}
+			renderer = Neos.Fusion:ResourceUri {
+				path = 'Images/dummy-image.svg'
+				package = 'Neos.Neos'
+			}
+		}
+
+		@cache {
+			entryTags {
+				# Whenever the node changes the matched condition could change
+				1 = ${Neos.Caching.nodeTag(q(q(node).property('target')))}
+				# Whenever one of the parent nodes changes the layout could change
+				2 = ${Neos.Caching.descendantOfTag(q(q(node).property('target')))}
+			}
+		}
+	}
+
+	imageEnabled = ${q(node).property('image') || q(q(node).property('target')).property('image')}
+	imageUri = ${imageUri}
+	imageContents = Neos.Fusion:Tag {
+		type = 'Neos.Fusion:Tag'
+		tagName = 'img'
+
+		attributes {
+			alt = 'Teaser Image'
+			title = ${q(node).property('title')}
+			src = ${imageUri}
+		}
+	}
+
+	textEnabled = ${q(q(q(node).property('target')).children('teaserText').get(0)).property('text')}
+	textRenderer = Neos.NodeTypes:Text
+	textNode = ${q(q(node).property('target')).children('teaserText').get(0)}
+	textContents = Neos.Fusion:Case {
+		override {
+			condition = ${q(node).property('text')}
+			renderer = ${q(node).property('text')}
+		}
+
+		teaser {
+			condition = ${q(q(q(node).property('target')).children('teaserText').get(0)).property('text')}
+			renderer = ${q(q(q(node).property('target')).children('teaserText').get(0)).property('text')}
+		}
+
+		fallback {
+			condition = ${true}
+			renderer = 'No text given...'
+		}
+
+		@cache {
+			entryTags {
+				# Whenever the node changes the matched condition could change
+				1 = ${Neos.Caching.nodeTag(q(q(node).property('target')))}
+				# Whenever one of the parent nodes changes the layout could change
+				2 = ${Neos.Caching.descendantOfTag(q(q(node).property('target')))}
+			}
+		}
 	}
 }
