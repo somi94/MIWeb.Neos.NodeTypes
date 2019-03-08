@@ -41,6 +41,23 @@ prototype(MIWeb.Neos.NodeTypes:Page) < prototype(Neos.Neos:Page) {
 
         isHomepage = ${q(node).is('[instanceof MIWeb.Neos.NodeTypes:Homepage]')}
 
+        @context.teaserImageAsset = Neos.Fusion:Case {
+            own {
+                condition = ${q(node).property('image')}
+                renderer = ${q(node).property('image')}
+            }
+
+            parent {
+                condition = ${q(q(node).parents('[image]').get(0)).property('image')}
+                renderer = ${q(q(node).parents('[image]').get(0)).property('image')}
+            }
+
+            fallback {
+                condition = ${true}
+                renderer = ''
+            }
+        }
+
         content {
             // The default content section
             main = Neos.Neos:PrimaryContent {
@@ -56,9 +73,10 @@ prototype(MIWeb.Neos.NodeTypes:Page) < prototype(Neos.Neos:Page) {
             teaserText = ${q(node).children('teaserText').get(0)}
             teaserTextContents = ${q(q(node).children('teaserText').get(0)).property('text')}
 
-			teaserImageAsset = ${q(node).property('image')}
+
+			teaserImageAsset = ${teaserImageAsset}
 			teaserImage = Neos.Neos:ImageTag {
-				asset = ${q(node).property('image')}
+				asset = ${teaserImageAsset}
 				attributes.alt = 'Teaser Image'
 				attributes.title = ${q(node).property('title')}
 				attributes.class = attributes.class + ' title-image'
