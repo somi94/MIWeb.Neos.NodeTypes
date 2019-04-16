@@ -27,6 +27,13 @@
 /************************
  * Grid
  ************************/
+.container.neos-nodetypes-twocolumn,
+.container.neos-nodetypes-threecolumn,
+.container.neos-nodetypes-fourcolumn {
+    max-width: none;
+    padding: 0;
+}
+
 .neos-nodetypes-twocolumn,
 .neos-nodetypes-threecolumn,
 .neos-nodetypes-fourcolumn {
