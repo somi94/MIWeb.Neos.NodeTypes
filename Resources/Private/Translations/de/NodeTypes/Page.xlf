@@ -14,6 +14,10 @@
 				<source>Show in Meta Menu</source>
                 <target xml:lang="de" state="translated">In Meta-Menü anzeigen</target>
             </trans-unit>
+            <trans-unit id="properties.hideChildrenInMenu" xml:space="preserve" approved="yes">
+				<source>Hide children in menu</source>
+                <target xml:lang="de" state="translated">Kinder in Menüs verbergen</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

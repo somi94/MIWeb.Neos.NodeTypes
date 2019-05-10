@@ -30,6 +30,14 @@
         inspector:
           group: 'visibility'
           position: 50
+    hideChildrenInMenu:
+      type: boolean
+      ui:
+        label: i18n
+        reloadPageIfChanged: true
+        inspector:
+          group: 'visibility'
+          position: 45
 'MIWeb.Neos.NodeTypes:Homepage':
   superTypes:
     'MIWeb.Neos.NodeTypes:Page': true

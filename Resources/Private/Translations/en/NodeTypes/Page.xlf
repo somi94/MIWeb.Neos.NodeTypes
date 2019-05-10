@@ -11,6 +11,9 @@
             <trans-unit id="properties.showInMetaMenu" xml:space="preserve">
 				<source>Show in Meta Menu</source>
             </trans-unit>
+            <trans-unit id="properties.hideChildrenInMenu" xml:space="preserve">
+				<source>Hide children in menu</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
