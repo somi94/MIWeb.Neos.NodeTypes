@@ -79,6 +79,68 @@
     label: 'Quote'
     icon: 'icon-file-text'
     position: 200
+'MIWeb.Neos.NodeTypes:Odometer':
+  superTypes:
+    'Neos.Neos:Content': true
+    'Neos.NodeTypes:ImageMixin': true
+  ui:
+    label: 'Odometer'
+    icon: 'icon-file-text'
+    position: 201
+    inspector:
+      groups:
+        odometer:
+          label: 'Odometer'
+  properties:
+    icon:
+      type: string
+      defaultValue: 'fas fa-tachometer-alt'
+      ui:
+        label: 'Icon'
+        inspector:
+          group: odometer
+    title:
+      type: string
+      ui:
+        label: 'Title'
+        inlineEditable: true
+        aloha:
+          autoparagraph: false
+          placeholder: 'Enter title here...'
+        inspector:
+          group: odometer
+    value:
+      type: string
+      ui:
+        label: 'Value'
+        inlineEditable: true
+        aloha:
+          autoparagraph: false
+          placeholder: 'Enter value here...'
+        inspector:
+          group: odometer
+    unit:
+      type: string
+      ui:
+        label: 'Unit'
+        inlineEditable: true
+        aloha:
+          autoparagraph: false
+          placeholder: 'Enter unit here...'
+        inspector:
+          group: odometer
+    text:
+      type: string
+      ui:
+        label: 'Description'
+        inlineEditable: true
+#        reloadPageIfChanged: true
+        aloha:
+#          autoparagraph: false
+          placeholder: 'Enter description here...'
+        inspector:
+          editor: 'Neos.Neos/Inspector/Editors/TextAreaEditor'
+          group: odometer
 #'Neos.NodeTypes:Text':
 #  properties:
 #    text:

@@ -1,0 +1,36 @@
+{namespace media=Neos\Media\ViewHelpers}
+{namespace neos=Neos\Neos\ViewHelpers}
+
+<div class="miweb-neos-nodetypes-odometer" {attributes -> f:format.raw()}>
+    <div class="icon">
+        <f:if condition="{image}">
+            <f:then>
+                <media:image image="{image}" alt="Icon" />
+            </f:then>
+            <f:else>
+                <i class="{icon}"></i>
+            </f:else>
+        </f:if>
+    </div>
+    <f:if condition="{neos:rendering.inBackend()} || {value} || {title}">
+        <div>
+        <f:if condition="{neos:rendering.inBackend()}">
+            <f:then>
+                {neos:contentElement.editable(property: 'value')}
+                {neos:contentElement.editable(property: 'unit')}
+            </f:then>
+            <f:else>
+                <f:if condition="{value}">
+                    <span class="value">{value -> f:format.raw()}</span> <span class="unit">{unit -> f:format.raw()}</span>
+                </f:if>
+            </f:else>
+        </f:if>
+        </div>
+        <div class="title">{neos:contentElement.editable(property: 'title')}</div>
+    </f:if>
+    <f:if condition="{neos:rendering.inBackend()} || {text}">
+        <div class="description">
+            {neos:contentElement.editable(property: 'text')}
+        </div>
+    </f:if>
+</div>

@@ -38,6 +38,9 @@
         inspector:
           group: 'visibility'
           position: 45
+  constraints:
+    nodeTypes:
+      'MIWeb.Neos.NodeTypes:Homepage': FALSE
 'MIWeb.Neos.NodeTypes:Homepage':
   superTypes:
     'MIWeb.Neos.NodeTypes:Page': true
