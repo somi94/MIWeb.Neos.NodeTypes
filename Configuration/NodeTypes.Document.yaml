@@ -18,6 +18,10 @@
       groups:
         image:
           position: 205
+        previewImage:
+          label: 'Preview Image'
+          position: 206
+          icon: 'icon-image'
   childNodes:
     main:
       type: 'Neos.Neos:ContentCollection'
@@ -38,6 +42,30 @@
         inspector:
           group: 'visibility'
           position: 45
+    previewImage:
+      type: Neos\Media\Domain\Model\ImageInterface
+      ui:
+        label: 'Image'
+        reloadIfChanged: true
+        inspector:
+          group: 'previewImage'
+          position: 50
+    previewImageAlternativeText:
+      type: string
+      ui:
+        label: 'Alternative Text'
+        reloadIfChanged: true
+        inspector:
+          group: 'previewImage'
+          position: 100
+    previewImageTitle:
+      type: string
+      ui:
+        label: 'Title'
+        reloadIfChanged: true
+        inspector:
+          group: 'previewImage'
+          position: 150
   constraints:
     nodeTypes:
       'MIWeb.Neos.NodeTypes:Homepage': FALSE
