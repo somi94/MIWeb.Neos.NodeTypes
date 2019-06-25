@@ -1,0 +1,20 @@
+{namespace fusion=Neos\Fusion\ViewHelpers}
+{namespace neos=Neos\Neos\ViewHelpers}
+
+<div class="accordion" {attributes -> f:format.raw()}>
+    <div class="accordion-title">
+        <h2>{neos:contentElement.editable(property: 'title')}</h2>
+    </div>
+    <div class="accordion-content">
+        <fusion:render path="content" />
+        <f:comment><!--
+        <div>
+            <div class="job-meta">
+                {jobLocation}<f:if condition="{jobCreated}">, {jobCreated}</f:if>
+            </div>
+            <p>{content -> f:format.raw()}</p>
+            <a href="{uri}">Mehr erfahren...</a>
+        </div>
+        --></f:comment>
+    </div>
+</div>

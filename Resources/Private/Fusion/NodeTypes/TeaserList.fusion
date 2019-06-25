@@ -1,0 +1,24 @@
+prototype(MIWeb.Neos.NodeTypes:TeaserList) {
+//    @context.document = ${q(node).parents('[instanceof Neos.Neos:Document]').get(0)}
+	@context.document = Neos.Fusion:Case {
+        property {
+            condition = ${q(node).property('parent')}
+            renderer = ${q(q(node).property('parent')).get(0)}
+        }
+
+        parent {
+            condition = ${true}
+            renderer = ${q(node).parents('[instanceof Neos.Neos:Document]').get(0)}
+        }
+    }
+
+    contents = Neos.Fusion:Collection {
+        collection = ${q(document).children('[instanceof MIWeb.Neos.NodeTypes:Page]').get()}
+        itemName = 'target'
+        itemRenderer = MIWeb.Neos.NodeTypes:Teaser {
+            @context.target = ${target}
+            attributes.class= 'miweb-neos-nodetypes-teaser'
+        }
+    }
+
+}

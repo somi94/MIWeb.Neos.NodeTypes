@@ -1,0 +1,16 @@
+prototype(MIWeb.Neos.NodeTypes:Accordion) {
+//    @context.target = ${q(q(node).property('target')).get(0)}
+//
+//    target = ${target}
+//
+//    uri = Neos.Neos:NodeUri {
+//        node = ${target}
+//    }
+//
+//    title = ${q(node).property('title') || q(target).property('title')}
+
+
+    content = Neos.Neos:ContentCollection {
+        nodePath = 'content'
+    }
+}

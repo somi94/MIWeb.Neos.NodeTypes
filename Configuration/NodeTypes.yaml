@@ -44,6 +44,27 @@
           editor: 'Neos.Neos/Inspector/Editors/TextAreaEditor'
     alternativeText:
       ui: ~
+'MIWeb.Neos.NodeTypes:TeaserList':
+  superTypes:
+    'Neos.Neos:Content': true
+  ui:
+    label: 'Teaser List'
+    icon: 'icon-file-text'
+    position: 202
+    inspector:
+      groups:
+        target:
+          label: 'Target'
+  properties:
+    parent:
+      type: reference
+      ui:
+        label: 'Parent'
+        reloadPageIfChanged: true
+        inspector:
+          group: target
+          editorOptions:
+            nodeTypes: ['Neos.Neos:Document']
 'MIWeb.Neos.NodeTypes:Button':
   superTypes:
     'Neos.Neos:Content': true
@@ -152,3 +173,27 @@
 #              right: true
 #              center: true
 #              justify: true
+'MIWeb.Neos.NodeTypes:Accordion':
+  superTypes:
+    'Neos.Neos:Content': true
+  ui:
+    label: 'Accordion'
+    icon: 'icon-file-text'
+    inspector:
+      groups:
+        accordion:
+          label: 'Accordion'
+  childNodes:
+    content:
+      type: 'Neos.Neos:ContentCollection'
+  properties:
+    title:
+      type: string
+      ui:
+        label: 'Title'
+        inlineEditable: true
+        aloha:
+          autoparagraph: false
+          placeholder: 'Enter title here...'
+        inspector:
+          group: accordion
