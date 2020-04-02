@@ -132,3 +132,54 @@ img {
     margin-top: 1rem;
     text-align: left;
 }
+
+.miweb-neos-nodetypes-customervoice {
+    margin-bottom: 1.5em;
+}
+
+.miweb-neos-nodetypes-customervoice .customervoice-content::after {
+    clear: both;
+    float: none;
+    content: " ";
+    display: table;
+}
+
+.miweb-neos-nodetypes-customervoice .customervoice-image {
+    float: left;
+    margin-right: 1em;
+}
+
+.miweb-neos-nodetypes-customervoice .customervoice-image img {
+    border-radius: 50%;
+    width: 128px;
+    height: auto;
+}
+
+.miweb-neos-nodetypes-customervoice .customervoice-content {
+    text-align: left;
+}
+
+.miweb-neos-nodetypes-customervoice .customervoice-title,
+.miweb-neos-nodetypes-customervoice .customervoice-subtitle {
+    display: inline-block;
+    line-height: 30px;
+}
+
+.miweb-neos-nodetypes-customervoice .customervoice-title {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.miweb-neos-nodetypes-customervoice .customervoice-subtitle {
+    color: #999;
+    margin-left: .5em;
+}
+
+.miweb-neos-nodetypes-customervoice .customervoice-text {
+    font-style: italic;
+}
+
+.miweb-neos-nodetypes-customervoice .customervoice-text > div:not(.neos-inline-editable) > p::before,
+.miweb-neos-nodetypes-customervoice .customervoice-text > div:not(.neos-inline-editable) > p::after {
+    content: "\""
+}

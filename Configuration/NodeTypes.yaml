@@ -100,6 +100,40 @@
     label: 'Quote'
     icon: 'icon-file-text'
     position: 200
+'MIWeb.Neos.NodeTypes:CustomerVoice':
+  superTypes:
+    'Neos.Neos:Content': true
+    'Neos.NodeTypes:ImageMixin': true
+    'Neos.NodeTypes:TextMixin': true
+  ui:
+    label: 'Customer Voice'
+    icon: 'icon-file-text'
+    position: 200
+    inspector:
+      groups:
+        customerVoice:
+          label: 'Customer Voice'
+  properties:
+    title:
+      type: string
+      ui:
+        label: 'Title'
+        inlineEditable: true
+        aloha:
+          autoparagraph: false
+          placeholder: 'Enter title here...'
+        inspector:
+          group: customerVoice
+    subtitle:
+      type: string
+      ui:
+        label: 'Subtitle'
+        inlineEditable: true
+        aloha:
+          autoparagraph: false
+          placeholder: 'Enter subtitle here...'
+        inspector:
+          group: customerVoice
 'MIWeb.Neos.NodeTypes:Odometer':
   superTypes:
     'Neos.Neos:Content': true

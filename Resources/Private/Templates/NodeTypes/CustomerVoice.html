@@ -1,0 +1,12 @@
+{namespace media=Neos\Media\ViewHelpers}
+{namespace neos=Neos\Neos\ViewHelpers}
+<div {attributes -> f:format.raw()}>
+    <div class="customervoice-image"><media:image image="{image}" alt="Customer Image" width="512" /></div>
+    <div class="customervoice-content">
+        <div>
+            <div class="customervoice-title">{neos:contentElement.editable(property: 'title')}</div>
+            <div class="customervoice-subtitle">{neos:contentElement.editable(property: 'subtitle')}</div>
+        </div>
+        <div class="customervoice-text">{neos:contentElement.editable(property: 'text')}</div>
+    </div>
+</div>
