@@ -100,6 +100,13 @@
     label: 'Quote'
     icon: 'icon-file-text'
     position: 200
+'MIWeb.Neos.NodeTypes:Stamp':
+  superTypes:
+    'Neos.NodeTypes:Text': true
+  ui:
+    label: 'Stamp'
+    icon: 'icon-file-text'
+    position: 200
 'MIWeb.Neos.NodeTypes:CustomerVoice':
   superTypes:
     'Neos.Neos:Content': true

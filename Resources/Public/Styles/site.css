@@ -183,3 +183,54 @@ img {
 .miweb-neos-nodetypes-customervoice .customervoice-text > div:not(.neos-inline-editable) > p::after {
     content: "\""
 }
+
+.miweb-neos-nodetypes-stamp {
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow: 5px 5px #d9d9d9;
+    display: inline-block;
+    text-align: center;
+
+    box-shadow: 5px 5px #d9d9d9;
+    animation: pulse 2s infinite;
+
+    padding: .5em 1em;
+
+    margin-bottom: 1em;
+
+    border-color: #5aab3f;
+    background-color: #e6ffde;
+    color: #396c27;
+}
+
+.miweb-neos-nodetypes-stamp p:last-child {
+    margin-bottom: 0;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(90, 171, 63, 0.5);
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 12px rgba(90, 171, 63, 0);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 12px rgba(90, 171, 63, 0);
+    }
+}
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(90, 171, 63, 0.5);
+        -moz-box-shadow: 0 0 0 0 rgba(90, 171, 63, 0.5);
+    }
+
+    70% {
+        box-shadow: 0 0 0 12px rgba(90, 171, 63, 0);
+        -moz-box-shadow: 0 0 0 12px rgba(90, 171, 63, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 12px rgba(90, 171, 63, 0);
+        -moz-box-shadow: 0 0 0 12px rgba(90, 171, 63, 0);
+    }
+}
